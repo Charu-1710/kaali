@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Foundation - Empowering Communities</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -17,7 +18,10 @@
             }
         }
     </script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         
@@ -51,6 +55,8 @@
             height : auto;
             
         }
+
+
     </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -115,13 +121,37 @@
                     <button onclick="showTab('about')" class="bg-ngo-red hover:bg-ngo-dark-red text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                         Learn More
                     </button>
-                    <button onclick="showDonateModal()" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all">
-                        Donate Now
-                    </button>
+                    <!-- <button onclick="showDonateModal()" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all">
+                        
+                    </button> -->
+                    <button type="button" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-lg font-semibold transition-all" data-bs-toggle="modal" data-bs-target="#donateModal">
+  Donate Now
+</button>
                 </div>
             </div>
         </section>
+<!-- Button trigger modal -->
+<!-- /<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
 
+<!-- Modal -->
+<div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Scan To Donate</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="images/snanner.jpg" alt="">
+      </div>
+      <div class="modal-footer d-flex">
+        <p class="text-center w-full">Scan the QR code using any UPI App to donate.</p>
+      </div>
+    </div>
+  </div>
+</div>
         <!-- Mission Section -->
         <section class="py-16 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -398,8 +428,8 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
                                 </div>
                             </div>
                             <div class="mt-6 md:mt-0 md:ml-8">
-                                <button onclick="registerEvent('gala')" class="bg-ngo-red hover:bg-ngo-dark-red text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                                    Register Now
+                                <button onclick="showTab('contact')" class="bg-ngo-red hover:bg-ngo-dark-red text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                    Contact Us
                                 </button>
                             </div>
                         </div>
@@ -426,8 +456,8 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
                                 </div>
                             </div>
                             <div class="mt-6 md:mt-0 md:ml-8">
-                                <button onclick="registerEvent('cleanup')" class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                                    Join Us
+                                <button onclick="showTab('contact')" class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                    Contact Us
                                 </button>
                             </div>
                         </div>
@@ -454,8 +484,8 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
                                 </div>
                             </div>
                             <div class="mt-6 md:mt-0 md:ml-8">
-                                <button onclick="registerEvent('workshop')" class="bg-ngo-red hover:bg-ngo-dark-red text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                                    Register
+                                <button onclick="showTab('contact')" class="bg-ngo-red hover:bg-ngo-dark-red text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                    Contact Us
                                 </button>
                             </div>
                         </div>
@@ -482,8 +512,8 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
                                 </div>
                             </div>
                             <div class="mt-6 md:mt-0 md:ml-8">
-                                <button onclick="registerEvent('health')" class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                                    Participate
+                                <button onclick="showTab('contact')" class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                                    Contact Us
                                 </button>
                             </div>
                         </div>
@@ -768,57 +798,38 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
 
     <!-- Footer -->
     <footer class="bg-black text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-ngo-red rounded-full flex items-center justify-center mr-3">
-                            <span class="text-white font-bold text-lg">U</span>
-                        </div>
-                        <span class="text-xl font-bold">Unity Foundation</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        Building stronger communities through education, healthcare, and sustainable development programs.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><button onclick="showTab('about')" class="hover:text-white transition-colors">About Us</button></li>
-                        <li><button onclick="showTab('gallery')" class="hover:text-white transition-colors">Gallery</button></li>
-                        <li><button onclick="showTab('events')" class="hover:text-white transition-colors">Events</button></li>
-                        <li><button onclick="showTab('blog')" class="hover:text-white transition-colors">Blog</button></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Programs</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Education</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Healthcare</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Community Development</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Skills Training</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-                    <p class="text-gray-400 mb-4">Stay updated with our latest news and impact stories.</p>
-                    <div class="flex">
-                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-ngo-red">
-                        <button onclick="subscribeNewsletter()" class="bg-ngo-red hover:bg-ngo-dark-red px-4 py-2 rounded-r-lg transition-colors">
-                            Subscribe
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <!-- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> -->
+         
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Unity Foundation. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2024 Kaali Foundation. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
-        </div>
+        <!-- </div> -->
     </footer>
+    <!-- <div id="donateModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Scan to Donate</h2>
+    
+    <p>Scan the QR code using any UPI app to donate.</p>
+  </div>
+</div> -->
+<div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="images/snanner.jpg" alt="UPI QR Code" width="250">
+      </div>
+      <div class="modal-footer">
+        <p>Scan the QR code using any UPI app to donate.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script>
         // Tab functionality
@@ -930,7 +941,19 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
         
         // Donation modal
         function showDonateModal() {
-            alert('This would open a secure donation form where you can contribute to our programs. Thank you for your generosity!');
+            let modal = document.getElementById("donateModal");
+let btn = document.getElementById("donateBtn");
+let span = document.getElementsByClassName("close")[0];
+  modal.style.display = "block";
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
         }
         
         // Mobile menu handling for tab buttons
@@ -940,5 +963,7 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974d4a50470891b2',t:'MTc1NjE0Nzk4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
