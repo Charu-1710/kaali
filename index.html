@@ -620,8 +620,8 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
                                 <option value="general">General Information</option>
                                 <option value="other">Other</option>
                             </select>
-                            <textarea placeholder="Your Message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ngo-red focus:border-transparent outline-none mb-6" required></textarea>
-                            <button type="submit" class="w-full bg-ngo-red hover:bg-ngo-dark-red text-white py-3 rounded-lg font-semibold transition-colors">
+                            <textarea id="message" placeholder="Your Message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ngo-red focus:border-transparent outline-none mb-6" required></textarea>
+                            <button type="submit" onclick="sendMessage()" class="w-full bg-ngo-red hover:bg-ngo-dark-red text-white py-3 rounded-lg font-semibold transition-colors">
                                 Send Message
                             </button>
                         </form>
@@ -803,7 +803,7 @@ Our passionate team of volunteers and professionals work tirelessly to provide g
          
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Kaali Foundation. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2021 Kaali Foundation. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         <!-- </div> -->
     </footer>
@@ -963,6 +963,13 @@ window.onclick = function(event) {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
+
+        function sendMessage() {
+  let msg = document.getElementById("message").value;
+  let phone = "917217205142"; // replace with actual number (country code included)
+  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+  window.open(url, "_blank");
+}
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
